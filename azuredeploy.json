@@ -3,30 +3,6 @@
     "contentVersion": "1.0.0.0",
     "apiProfile": "2018-03-01-hybrid",
     "parameters": {
-        "javaPackageName": {
-            "type": "string",
-            "defaultValue": "openjdk-7-jdk",
-            "metadata": {
-                "description": "java Package Name"
-            },
-            "allowedValues": [
-                "openjdk-6-jdk",
-                "openjdk-7-jdk",
-                "openjdk-8-jdk"
-            ]
-        },
-        "tomcatPackageName": {
-            "type": "string",
-            "defaultValue": "tomcat7",
-            "metadata": {
-                "description": "tomcat Package Name"
-            },
-            "allowedValues": [
-                "tomcat6",
-                "tomcat7",
-                "tomcat8"
-            ]
-        },
         "vmSku": {
             "defaultValue": "Standard_D1",
             "type": "String",
@@ -294,7 +270,7 @@
                                         "fileUris": [
                                             "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/openjdk-tomcat-ubuntu-vm/java-tomcat-install.sh"
                                         ],
-                                        "commandToExecute": "[concat('sh java-tomcat-install.sh',' ',parameters('javaPackageName'),' ',parameters('tomcatPackageName'))]",
+                                        "commandToExecute": "sh java-tomcat-install.sh",
                                         "enableInternalDNSCheck": "false"
                                     }
                                 }

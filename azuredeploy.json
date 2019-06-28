@@ -151,8 +151,8 @@
                                 "id": "[concat(resourceId('Microsoft.Network/loadBalancers', variables('loadBalancerName')), '/backendAddressPools/', variables('loadBalancerBackendName'))]"
                             },
                             "protocol": "tcp",
-                            "frontendPort": 80,
-                            "backendPort": 80,
+                            "frontendPort": 8080,
+                            "backendPort": 8080,
                             "enableFloatingIP": false,
                             "idleTimeoutInMinutes": 5,
                             "probe": {
@@ -166,7 +166,7 @@
                         "name": "[variables('loadBalancerProbeName')]",
                         "properties": {
                             "protocol": "tcp",
-                            "port": 80,
+                            "port": 8080,
                             "intervalInSeconds": "5",
                             "numberOfProbes": "2"
                         }
@@ -180,9 +180,8 @@
                                 "id": "[concat(resourceId('Microsoft.Network/loadBalancers', variables('loadBalancerName')), '/frontendIPConfigurations/', variables('loadBalancerFrontEndName'))]"
                             },
                             "protocol": "tcp",
-                            "frontendPortRangeStart": "50000",
-                            "frontendPortRangeEnd": "50019",
-                            "backendPort": "3389"
+                            "frontendPort": "8080",
+                            "backendPort": "8080"
                         }
                     }
                 ]
@@ -268,7 +267,7 @@
                                     "autoUpgradeMinorVersion": true,
                                     "settings": {
                                         "fileUris": [
-                                            "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/openjdk-tomcat-ubuntu-vm/java-tomcat-install.sh"
+                                            "https://raw.githubusercontent.com/ArpanBalpande/VMSS-JavaTomcat/master/java-tomcat-install.sh"
                                         ],
                                         "commandToExecute": "sh java-tomcat-install.sh",
                                         "enableInternalDNSCheck": "false"
